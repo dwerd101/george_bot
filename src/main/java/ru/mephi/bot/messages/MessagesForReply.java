@@ -9,7 +9,7 @@ import org.springframework.stereotype.Component;
 public class MessagesForReply {
 
     @Value("${message.hello}")
-    private String hello;
+    private  String hello;
     @Value("${message.error}")
     private String errorMessage;
 

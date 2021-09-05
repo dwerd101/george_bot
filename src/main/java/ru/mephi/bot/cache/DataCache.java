@@ -1,11 +1,11 @@
 
 package ru.mephi.bot.cache;
 
-import ru.mephi.config.bot.BotState;
+import ru.mephi.config.BotState;
 
 public interface DataCache {
-    void setUsersCurrentBotState(int userId, BotState botState);
+    void setUsersCurrentBotState(Long userId, BotState botState);
 
-    BotState getUsersCurrentBotState(int userId);
+    BotState getUsersCurrentBotState(Long userId);
 }
 

@@ -1,1 +1,1 @@
-web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/demo-2.0.3.jar
+web: java -Dserver.port=$PORT $JAVA_OPTS -jar build/libs/demo-3.0.5.jar

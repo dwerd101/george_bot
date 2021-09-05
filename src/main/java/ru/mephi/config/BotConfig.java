@@ -1,4 +1,4 @@
-package ru.mephi.config.bot;
+package ru.mephi.config;
 
 import lombok.Getter;
 import lombok.Setter;

@@ -5,7 +5,7 @@ import lombok.AllArgsConstructor;
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import ru.mephi.config.bot.BotState;
+import ru.mephi.config.BotState;
 import ru.mephi.bot.api.handler.InputMessageHandler;
 import ru.mephi.bot.messages.MessagesForReply;
 import ru.mephi.bot.cache.UserDataCache;

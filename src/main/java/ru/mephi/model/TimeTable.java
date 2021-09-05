@@ -12,15 +12,9 @@ import java.util.List;
 @NoArgsConstructor
 @Data
 public class TimeTable {
-
     private String rangeOfTimes;
     private String nameLesson;
     private String typeOfLesson;
     private String cabinet;
     private List<String> teacherList;
-
-   /* @AllArgsConstructor
-    public enum TypeOfLesson{
-        Practice, Lecture
-    }*/
 }

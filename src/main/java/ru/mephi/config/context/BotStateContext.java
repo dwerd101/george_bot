@@ -1,12 +1,10 @@
-package ru.mephi.config.bot.context;
+package ru.mephi.config.context;
 
 import org.springframework.stereotype.Component;
 import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Message;
-import ru.mephi.bot.api.handler.InputMessageHandler;
-import ru.mephi.bot.api.handler.TodayHandler;
-import ru.mephi.bot.api.handler.TomorrowHandler;
-import ru.mephi.config.bot.BotState;
+import ru.mephi.bot.api.handler.*;
+import ru.mephi.config.BotState;
 
 import java.util.HashMap;
 import java.util.List;
@@ -34,6 +32,19 @@ public class BotStateContext {
             TomorrowHandler tomorrowHandler = (TomorrowHandler) currentMessageHandler;
             return tomorrowHandler.handle(chatId);
         }
+        else if(currentState.equals(BotState.WEEK)) {
+            WeekHandler weekHandler = (WeekHandler)  currentMessageHandler;
+            return weekHandler.handle(chatId);
+        }
+        else if(currentState.equals(BotState.WEATHER_TODAY)) {
+            WeatherTodayHandler weatherTodayHandler = (WeatherTodayHandler)  currentMessageHandler;
+            return weatherTodayHandler.handle(chatId);
+        }
+        else if(currentState.equals(BotState.WEATHER_TODAY_AND_TOMORROW)) {
+            WeatherTodayAndTomorrowHandler weatherTodayHandler = (WeatherTodayAndTomorrowHandler)  currentMessageHandler;
+            return weatherTodayHandler.handle(chatId);
+        }
+
         else return null;
     }
 

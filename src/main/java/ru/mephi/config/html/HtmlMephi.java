@@ -28,7 +28,6 @@ public class HtmlMephi {
     private String tomorrowUrl;
     /*@Value("${mephi.week}")
     private String weekUrl;*/
-
     @Value("${mephi.userAgent}")
     private String userAgent;
 

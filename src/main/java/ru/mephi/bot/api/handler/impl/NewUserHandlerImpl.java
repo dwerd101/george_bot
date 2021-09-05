@@ -9,7 +9,7 @@ import org.telegram.telegrambots.meta.api.objects.replykeyboard.InlineKeyboardMa
 import ru.mephi.bot.api.handler.InputMessageHandler;
 import ru.mephi.bot.cache.UserDataCache;
 import ru.mephi.bot.messages.MessagesForReply;
-import ru.mephi.config.bot.BotState;
+import ru.mephi.config.BotState;
 import ru.mephi.service.ReplyMessagesService;
 
 @Slf4j
@@ -32,12 +32,12 @@ public class NewUserHandlerImpl implements InputMessageHandler {
     }
 
     private SendMessage processUsersInput(Message inputMsg) {
-        int userId = inputMsg.getFrom().getId().intValue();
-        long chatId = inputMsg.getChatId();
+        final Long userId = inputMsg.getFrom().getId();
+        final long chatId = inputMsg.getChatId();
 
         SendMessage replyToUser = messagesService.getReplyMessage(chatId, messagesForReply.getHello());
         replyToUser.setReplyMarkup(inlineMessageButtons);
-        userDataCache.setUsersCurrentBotState(userId,BotState.NEW_USER);
+        userDataCache.setUsersCurrentBotState(userId, BotState.NEW_USER);
 
         return replyToUser;
     }

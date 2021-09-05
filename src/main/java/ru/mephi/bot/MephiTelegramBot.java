@@ -3,8 +3,11 @@ package ru.mephi.bot;
 import org.telegram.telegrambots.bots.DefaultBotOptions;
 import org.telegram.telegrambots.bots.TelegramWebhookBot;
 import org.telegram.telegrambots.meta.api.methods.BotApiMethod;
+import org.telegram.telegrambots.meta.api.methods.send.SendMessage;
 import org.telegram.telegrambots.meta.api.objects.Update;
 import ru.mephi.bot.api.facade.TelegramFacade;
+
+import java.util.Optional;
 
 public class MephiTelegramBot extends TelegramWebhookBot {
     private String webHookPath;
@@ -36,9 +39,9 @@ public class MephiTelegramBot extends TelegramWebhookBot {
 
     @Override
     public BotApiMethod<?> onWebhookUpdateReceived(Update update) {
-        BotApiMethod<?> replyMessageToUser = telegramFacade.handleUpdate(update);
+        Optional<BotApiMethod<?>> replyMessageToUser = telegramFacade.handleUpdate(update);
+        return replyMessageToUser.orElse(new SendMessage());
 
-        return replyMessageToUser;
     }
 
 
